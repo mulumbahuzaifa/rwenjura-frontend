@@ -3,10 +3,10 @@ import OwlCarousel from "react-owl-carousel";
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
 
-import guide1Img from "../../../assets/images/guide/guide-1.jpg";
+import guide1Img from "../../../assets/images/guide/DSC_7328.JPG";
 import guide2Img from "../../../assets/images/guide/guide-2.JPG";
 import guide3Img from "../../../assets/images/guide/guide-3.JPG";
-import guide4Img from "../../../assets/images/guide/guide-4.jpg";
+import guide4Img from "../../../assets/images/guide/IMG-20220304-WA0031.jpg";
 import { Link } from "react-router-dom";
 
 class GuideWrapper extends Component {
@@ -64,7 +64,7 @@ class GuideWrapper extends Component {
                 <div className="guide-thumb">
                   <img src={guide1Img} alt="" className="img-fluid" />
                   <div className="guide-info">
-                    <strong> Sakura Chen </strong> <p> Tour Guide </p>{" "}
+                    <strong> Mugenyi Aziz </strong> <p> Photographer </p>{" "}
                     <ul className="guide-links">
                       <li>
                         <Link to={"#"}>

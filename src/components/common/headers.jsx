@@ -32,7 +32,7 @@ const Headers = () => {
     if (keyword.trim()) {
       history(`/search/${keyword}`);
     } else {
-      history("/");
+      history("/package");
     }
   };
 
@@ -47,12 +47,14 @@ const Headers = () => {
                 <ul>
                   <li>
                     <i className="bx bxs-phone" />
-                    <a href="tel:+256704880439">+256 704-880-0439</a>
+                    <a href="tel:+256778876071">+256-778-876-071</a>
                   </li>
 
                   <li>
                     <i className="bx bxs-envelope" />
-                    <a href="mailto:info@example.com">info@gmail.com</a>
+                    <a href="mailto:info@rwenjuratoursandtravel.com">
+                      info@rwenjuratoursandtravel.com
+                    </a>
                   </li>
                 </ul>
               </div>
@@ -61,24 +63,24 @@ const Headers = () => {
               <div className="topbar-social">
                 <ul>
                   <li>
-                    <Link to={"#"}>
+                    <a href="https://www.instagram.com/rwenjuratours/">
                       <i className="bx bxl-instagram" />
-                    </Link>
+                    </a>
                   </li>
                   <li>
-                    <Link to={"#"}>
+                    <a href="https://www.facebook.com/rwenjuratours/">
                       <i className="bx bxl-facebook" />
-                    </Link>
+                    </a>
                   </li>
                   <li>
-                    <Link to={"#"}>
+                    <a href="https://twitter.com/RwenjuraTours?t=a0TaHw32Y9-XBhaNKCYQaA&s=09">
                       <i className="bx bxl-twitter" />
-                    </Link>
+                    </a>
                   </li>
                   <li>
-                    <Link to={"#"}>
+                    <a href="https://wa.me/message/4IUPSNXB6TUFK1">
                       <i className="bx bxl-whatsapp" />
-                    </Link>
+                    </a>
                   </li>
                 </ul>
               </div>
@@ -99,7 +101,21 @@ const Headers = () => {
                     <Link className="dropdown-item" to="/profile">
                       Profile
                     </Link>
-
+                    {userInfo.isAdmin === true ? (
+                      <>
+                        <Link className="dropdown-item" to="/add-product">
+                          Add-product
+                        </Link>
+                        <Link className="dropdown-item" to="/create-blog">
+                          Create-blog
+                        </Link>
+                        <Link className="dropdown-item" to="/bookings">
+                          Bookings
+                        </Link>
+                      </>
+                    ) : (
+                      <div></div>
+                    )}
                     <Link
                       className="dropdown-item"
                       to="#"
@@ -144,26 +160,69 @@ const Headers = () => {
                     </div>
                     <div className="user-dropdown-icon">
                       <i className="flaticon-user" />
-                      <div className="account-dropdown">
-                        <ul>
-                          <li className="account-el">
-                            <i className="bx bx-user-pin" />
-                            <Link to={"#"}>Sign in</Link>
-                          </li>
-                          <li className="account-el">
-                            <i className="bx bxs-user-account" />
-                            <Link to={"#"}>My Account</Link>
-                          </li>
-                          <li className="account-el">
-                            <i className="bx bx-extension" />
-                            <Link to={"#"}>Settings</Link>
-                          </li>
-                          <li className="account-el">
-                            <i className="bx bx-log-in-circle" />
-                            <Link to={"#"}>Log out</Link>
-                          </li>
-                        </ul>
-                      </div>
+                      {userInfo ? (
+                        <div className="account-dropdown">
+                          <ul>
+                            <li className="account-el">
+                              <i className="bx bxs-user-account" />
+                              <Link to={`/profile`}>My Account</Link>
+                            </li>
+                            {userInfo.isAdmin === true ? (
+                              <>
+                                <li className="account-el">
+                                  <i className="bx bx-highlight" />
+                                  <Link
+                                    className="dropdown-item"
+                                    to="/add-product"
+                                  >
+                                    Add-product
+                                  </Link>
+                                </li>
+                                <li className="account-el">
+                                  <i className="bx bx-image-alt" />
+                                  <Link
+                                    className="dropdown-item"
+                                    to="/create-blog"
+                                  >
+                                    Create-blog
+                                  </Link>
+                                </li>
+                                <li className="account-el">
+                                  <i className="bx bx-image-alt" />
+                                  <Link
+                                    className="dropdown-item"
+                                    to="/bookings"
+                                  >
+                                    Bookings
+                                  </Link>
+                                </li>
+                              </>
+                            ) : (
+                              <div></div>
+                            )}
+
+                            <li className="account-el">
+                              <i className="bx bx-log-in-circle" />
+                              <Link to={`#`} onClick={logoutHandler}>
+                                Log out
+                              </Link>
+                            </li>
+                          </ul>
+                        </div>
+                      ) : (
+                        <div className="account-dropdown">
+                          <ul>
+                            <li className="account-el">
+                              <i className="bx bx-user-pin" />
+                              <Link to={`/login`}>Sign in</Link>
+                            </li>
+                            <li className="account-el">
+                              <i className="bx bxs-user-account" />
+                              <Link to={`/register`}>Sign Up</Link>
+                            </li>
+                          </ul>
+                        </div>
+                      )}
                     </div>
                     <div className="mobile-menu d-flex ">
                       <div className="top-search-bar m-0 d-block d-xl-none"></div>
@@ -179,7 +238,7 @@ const Headers = () => {
               <div className="col-lg-10 col-md-10 col-sm-10 col-xs-10">
                 <nav className="main-nav">
                   <div className="navber-logo-sm">
-                    <img src={secondLogo} alt="name" className="img-fluid" />
+                    <img src={logoMain} alt="name" className="img-fluid" />
                   </div>
                   <ul>
                     <li>
@@ -234,15 +293,48 @@ const Headers = () => {
                     <div className="searchbar-open">
                       <i className="flaticon-magnifier" />
                     </div>
-                    {userInfo ? (
-                      <div className="user-dropdown-icon">
-                        <i className="flaticon-user" />
+                    <div className="user-dropdown-icon">
+                      <i className="flaticon-user" />
+                      {userInfo ? (
                         <div className="account-dropdown">
                           <ul>
                             <li className="account-el">
                               <i className="bx bxs-user-account" />
                               <Link to={`/profile`}>My Account</Link>
                             </li>
+                            {userInfo.isAdmin === true ? (
+                              <>
+                                <li className="account-el">
+                                  <i className="bx bxs-image-alt" />
+                                  <Link
+                                    className="dropdown-item"
+                                    to="/add-product"
+                                  >
+                                    Add-product
+                                  </Link>
+                                </li>
+                                <li className="account-el">
+                                  <i className="bx bx-highlight" />
+                                  <Link
+                                    className="dropdown-item"
+                                    to="/create-blog"
+                                  >
+                                    Create-blog
+                                  </Link>
+                                </li>
+                                <li className="account-el">
+                                  <i className="bx bx-highlight" />
+                                  <Link
+                                    className="dropdown-item"
+                                    to="/bookings"
+                                  >
+                                    Bookings
+                                  </Link>
+                                </li>
+                              </>
+                            ) : (
+                              <div></div>
+                            )}
 
                             <li className="account-el">
                               <i className="bx bx-log-in-circle" />
@@ -252,10 +344,7 @@ const Headers = () => {
                             </li>
                           </ul>
                         </div>
-                      </div>
-                    ) : (
-                      <div className="user-dropdown-icon">
-                        <i className="flaticon-user" />
+                      ) : (
                         <div className="account-dropdown">
                           <ul>
                             <li className="account-el">
@@ -268,19 +357,25 @@ const Headers = () => {
                             </li>
                           </ul>
                         </div>
-                      </div>
-                    )}
+                      )}
+                    </div>
                   </div>
                   <div className="sidebar-contact">
                     <ul>
                       <li className="sidebar-single-contact">
                         <i className="bx bxs-phone" />
-                        <Link to={`tel:+17632275032`}>+1 763-227-5032</Link>
+                        <Link to={`tel:+256778876071`}>+256-778-876-071</Link>
                       </li>
                       <li className="sidebar-single-contact">
                         <i className="bx bxs-envelope" />
-                        <Link to={`mailto:info@example.com`}>
-                          info@example.com
+                        <Link to={`mailto:info@rwenjuratoursandtravel.com`}>
+                          info@rwenjuratoursandtravel.com
+                        </Link>
+                      </li>
+                      <li className="sidebar-single-contact">
+                        <i className="bx bxs-envelope" />
+                        <Link to={`mailto:info@rwenjuratoursandtravel.com`}>
+                          info@rwenjuratoursandtravel.com
                         </Link>
                       </li>
                     </ul>
@@ -290,15 +385,19 @@ const Headers = () => {
             </div>
           </div>
 
-          <form>
+          <form onSubmit={submitHandler}>
             <div className="main-searchbar">
               <div className="searchbar-close">
                 <i className="bx bx-x" />
               </div>
-              <input type="text" placeholder="Search Here......" />
-              <div className="searchbar-icon">
+              <input
+                type="search"
+                placeholder="Search Here......"
+                onChange={e => setKeyword(e.target.value)}
+              />
+              <button type="submit" className="searchbar-icon">
                 <i className="bx bx-search" />
-              </div>
+              </button>
             </div>
           </form>
         </div>

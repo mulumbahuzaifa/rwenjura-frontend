@@ -7,10 +7,18 @@ import Loading from "../../LoadingError/Loading";
 import Message from "../../LoadingError/Error";
 import Headers from "../../common/headers";
 import Footers from "../../common/footers";
-import Pagination from "./Pagination";
+// import Pagination from "./Pagination";
+import Pagination from "../package/Pagination";
+import moment from "moment";
 
-const Packages = ({ match }) => {
+const Bookings = ({ match }) => {
   // const { keyword, pagenumber } = props;
+  const scrollTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
   const [searchParams, setSearchParams] = useSearchParams();
   const { keyword } = useParams();
   const { pageNumber } = useParams();
@@ -19,33 +27,13 @@ const Packages = ({ match }) => {
   const { loading, error, products, page, pages } = productList;
   const PF = "http://localhost:5000/images/";
   useEffect(() => {
-    console.log(listProduct);
+    scrollTop();
     dispatch(listProduct(keyword, pageNumber));
   }, [dispatch, keyword, pageNumber]);
 
   return (
     <div>
       <Headers />
-      {/* ===============  breadcrumb area start =============== */}
-      <div className="breadcrumb-area">
-        <div className="container">
-          <div className="row">
-            <div className="col-lg-12 col-md-12 col-sm-12">
-              <div className="breadcrumb-wrap">
-                <h2> Tour Package </h2>{" "}
-                <ul className="breadcrumb-links">
-                  <li>
-                    <Link to={`${process.env.PUBLIC_URL}/`}> Home </Link>{" "}
-                    <i className="bx bx-chevron-right" />
-                  </li>{" "}
-                  <li> Tour Package </li>{" "}
-                </ul>{" "}
-              </div>{" "}
-            </div>{" "}
-          </div>{" "}
-        </div>{" "}
-      </div>
-      {/* ===============  breadcrumb area end =============== */}
 
       {/* ===============  Package  area start =============== */}
       <div className="package-area pt-120">
@@ -53,8 +41,7 @@ const Packages = ({ match }) => {
           <div className="row">
             <div className="col-lg-12 col-md-12 col-sm-12">
               <div className="section-head pb-45">
-                <h5> Choose Your Package </h5>{" "}
-                <h2> Select Your best Package For Your Travel </h2>{" "}
+                <h5> Bookings </h5>{" "}
               </div>{" "}
             </div>{" "}
           </div>
@@ -67,7 +54,6 @@ const Packages = ({ match }) => {
           ) : (
             <>
               <div className="row">
-                {console.log(products)}
                 {products.map((obj, i) => {
                   // return <h2 key={i}>{obj.id} </h2>;
                   return (
@@ -80,7 +66,7 @@ const Packages = ({ match }) => {
                       <div className="package-card">
                         <div className="package-thumb">
                           <Link
-                            to={`${process.env.PUBLIC_URL}/package-details/${obj._id}`}
+                            to={`${process.env.PUBLIC_URL}/booking-details/${obj._id}`}
                           >
                             <img
                               src={PF + obj.image}
@@ -92,31 +78,19 @@ const Packages = ({ match }) => {
                         <div className="package-details">
                           <div className="package-info">
                             <h5>
-                              {" "}
-                              <span>{obj.price.toLocaleString()} </span>
-                              /PerPerson{" "}
-                            </h5>{" "}
-                            <h5>
                               <i className="flaticon-calendar" /> {obj.name}{" "}
                             </h5>{" "}
                           </div>{" "}
                           <h3>
                             <i className="flaticon-arrival" />
-                            <Link
-                              to={`${process.env.PUBLIC_URL}/package-details/${obj._id}`}
-                            >
-                              {" "}
-                              {obj.name}{" "}
-                            </Link>{" "}
+                            {obj.bookings.length === 0 && (
+                              <Message variant={"alert-info mt-3"}>
+                                {" "}
+                                No Bookings Yet
+                              </Message>
+                            )}
+                            {obj.bookings.length} Bookings Sofar
                           </h3>{" "}
-                          <div className="package-rating">
-                            <strong>
-                              {" "}
-                              <i className="bx bxs-star" />{" "}
-                              <span className="me-1"> {obj.rating} </span>{" "}
-                              Rating
-                            </strong>
-                          </div>{" "}
                         </div>{" "}
                       </div>{" "}
                     </div>
@@ -144,4 +118,4 @@ const Packages = ({ match }) => {
   );
 };
 
-export default Packages;
+export default Bookings;

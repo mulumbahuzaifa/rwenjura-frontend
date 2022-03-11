@@ -41,6 +41,39 @@ class AboutWrapper extends Component {
                       {" "}
                     </i>{" "}
                   </div>{" "}
+                  <div>
+                    <div className="blog-qoute">
+                      <i className="bx bx-anchor qoute-icon" />
+                      <strong> “OUR MOTTO”</strong>{" "}
+                      <p>
+                        Every Human Being deserves to Travel across the world
+                      </p>
+                    </div>{" "}
+                    <div className="blog-qoute">
+                      <i className="bx bx-code-block qoute-icon" />
+                      <strong> “Our Tagline”</strong>{" "}
+                      <p>Leading you across the Boarders</p>
+                    </div>{" "}
+                    <div className="blog-qoute">
+                      <i className="bx bx-map-pin qoute-icon" />
+                      <strong> “Our History”</strong>{" "}
+                      <p>
+                        Rwenjura Tours and Travel has been in Existance Longer
+                        hence it has been Tested and Trust by many you will be
+                        among them soon when you take a decision to give us an
+                        opportunity to serve you.
+                      </p>
+                    </div>{" "}
+                    <div className="blog-qoute">
+                      <i className="bx bx-donate-heart qoute-icon" />
+                      <strong> “Our Promise”</strong>{" "}
+                      <p>
+                        As far as Promoting Nature and Cultural Tourism we wont
+                        retire before we make it for everyone in the world.We
+                        are the Big Deal.
+                      </p>
+                    </div>{" "}
+                  </div>
                 </div>{" "}
               </div>{" "}
               <div className="col-lg-5 col-md-12">
@@ -75,43 +108,23 @@ class AboutWrapper extends Component {
                     from Safaris, beach vacations, hiking & mountain climbing,
                     weekend getaways, honeymoons to team building activities.{" "}
                   </p>{" "}
-                  <ul className="about-list">
-                    <li>
-                      {" "}
-                      <i className="flaticon-double-checking" /> Donec viverra
-                      orci On a{" "}
-                    </li>{" "}
-                    <li>
-                      {" "}
-                      <i className="flaticon-double-checking" /> Donec viverra
-                      orci On a{" "}
-                    </li>{" "}
-                    <li>
-                      {" "}
-                      <i className="flaticon-double-checking" /> Donec viverra
-                      orci On a{" "}
-                    </li>{" "}
-                    <li>
-                      {" "}
-                      <i className="flaticon-double-checking" /> Donec viverra
-                      orci On a{" "}
-                    </li>{" "}
-                    <li>
-                      {" "}
-                      <i className="flaticon-double-checking" /> Donec viverra
-                      orci On a{" "}
-                    </li>{" "}
-                    <li>
-                      {" "}
-                      <i className="flaticon-double-checking" /> Donec viverra
-                      orci On a{" "}
-                    </li>{" "}
-                  </ul>{" "}
-                  <div className="about-wrapper-btn">
-                    <Link to={"#"} className="btn-common">
-                      {" "}
-                      Read More{" "}
-                    </Link>{" "}
+                  <div className="blog-texts mt-30">
+                    <div className="blog-qoute">
+                      <i className="bx bxs-quote-right qoute-icon" />
+                      <strong>
+                        {" "}
+                        “The world is a book and those who do not travel read
+                        only one page.” Saint Augustine
+                      </strong>{" "}
+                    </div>{" "}
+                    <div className="blog-qoute">
+                      <i className="bx bxs-quote-right qoute-icon" />
+                      <strong>
+                        {" "}
+                        Our team is driven by your Satisfactory. When you get
+                        satisfied we Live Longer and helps us to succeed.
+                      </strong>{" "}
+                    </div>{" "}
                   </div>{" "}
                 </div>{" "}
               </div>{" "}

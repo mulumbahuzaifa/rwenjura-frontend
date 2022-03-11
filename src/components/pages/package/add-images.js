@@ -1,69 +1,91 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import b_sm_5 from "../../../assets/images/blog/b-sm5.png";
 
-import bd_png from "../../../assets/images/blog/bd.png";
-import b_g_1 from "../../../assets/images/blog/blog-g-1.png";
-import b_g_2 from "../../../assets/images/blog/blog-g-2.png";
-import b_g_3 from "../../../assets/images/blog/blog-g-3.png";
-import c_1 from "../../../assets/images/blog/c-1.png";
-import c_2 from "../../../assets/images/blog/c-2.png";
-import c_3 from "../../../assets/images/blog/c-3.png";
-
-import b_sm_1 from "../../../assets/images/blog/b-sm1.png";
-import b_sm_2 from "../../../assets/images/blog/b-sm2.png";
-import b_sm_3 from "../../../assets/images/blog/b-sm3.png";
-import b_sm_4 from "../../../assets/images/blog/b-sm4.png";
 import Headers from "../../common/headers";
 import Footers from "../../common/footers";
-
-import sidebarBanner from "../../../assets/images/sidebar-banner.png";
+import { toast } from "react-toastify";
+import Toast from "../../LoadingError/Toast";
 
 import axios from "axios";
-const BlogCreate = () => {
+const ImagesCreate = () => {
   const scrollTop = () => {
     window.scrollTo({
       top: 0,
       behavior: "smooth",
     });
   };
-  const [title, setTitle] = useState("");
-  const [description, setDesc] = useState("");
+  const Toastobjects = {
+    pauseOnFocusLoss: false,
+    draggable: false,
+    pauseOnHover: false,
+    autoClose: 2000,
+  };
   const [file, setFile] = useState(null);
-  const [keyword, setKeyword] = useState();
+  const [image, setImage] = useState("");
   const dispatch = useDispatch();
   let history = useNavigate();
+
+  const url = window.location.pathname;
+  const productId = url.substring(url.lastIndexOf("/") + 1);
 
   const userLogin = useSelector(state => state.userLogin);
   const { userInfo } = userLogin;
 
+  const productGallaryCreate = useSelector(state => state.productGallaryCreate);
+  const {
+    loading: loadingCreateGallary,
+    error: errorCreateGallary,
+    success: successCreateGallary,
+  } = productGallaryCreate;
+
+  useEffect(() => {
+    scrollTop();
+  }, []);
+
+  // const handleImageSubmit = e => {
+  //   e.preventDefault();
+  //   dispatch(
+  //     createProductGallary(productId, {
+  //       image,
+  //     })
+  //   );
+  // };
+
   const handleSubmit = async e => {
     e.preventDefault();
-    const newPost = {
-      username: userInfo.name,
-      title,
-      description,
-    };
+    const newProduct = {};
     if (file) {
       const data = new FormData();
       const filename = Date.now() + file.name;
       data.append("name", filename);
       data.append("file", file);
-      newPost.image = filename;
+      newProduct.image = filename;
       try {
         await axios.post("http://localhost:5000/api/upload", data);
       } catch (err) {}
     }
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${userInfo.token}`,
+      },
+    };
+
     try {
-      const res = await axios.post("http://localhost:5000/api/posts", newPost);
-      window.location.replace("/blog-details/" + res.data._id);
+      await axios.post(
+        `http://localhost:5000/api/products/${productId}/images`,
+        newProduct,
+        config
+      );
+      toast.success("Image Successfully Added", Toastobjects);
+      window.location.replace("/package-details/" + productId);
     } catch (err) {}
   };
 
   return (
     <>
-      <Headers />{" "}
+      <Headers /> <Toast />
       {/* ===============  Blog wrapper area start =============== */}{" "}
       <div className="write">
         {file && (
@@ -77,25 +99,12 @@ const BlogCreate = () => {
             <input
               type="file"
               id="fileInput"
+              required
               style={{ display: "none" }}
               onChange={e => setFile(e.target.files[0])}
             />
-            <input
-              type="text"
-              placeholder="Title"
-              className="writeInput"
-              autoFocus={true}
-              onChange={e => setTitle(e.target.value)}
-            />
           </div>
-          <div className="writeFormGroup">
-            <textarea
-              placeholder="Tell your story..."
-              type="text"
-              className="writeInput writeText"
-              onChange={e => setDesc(e.target.value)}
-            ></textarea>
-          </div>
+
           <button className="writeSubmit" type="submit">
             Publish
           </button>
@@ -106,4 +115,4 @@ const BlogCreate = () => {
   );
 };
 
-export default BlogCreate;
+export default ImagesCreate;

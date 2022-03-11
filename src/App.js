@@ -9,6 +9,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import MainLayout from "./components/layouts/main";
 import MainTwoLayout from "./components/layouts/main-two";
 import "react-toastify/dist/ReactToastify.css";
+import "@fortawesome/fontawesome-svg-core/styles.css";
 
 //Import wrapping layout
 
@@ -33,6 +34,12 @@ import Register from "./components/pages/Register/Register";
 import ProfileScreen from "./components/pages/profile/ProfileScreen";
 import commerce from "./lib/commerce";
 import PrivateRouter from "./PrivateRouter";
+import BlogCreate from "./components/pages/blog/BlogCreate";
+import PackageCreate from "./components/pages/package/add-package";
+import Bookings from "./components/pages/bookings/Bookings";
+import BookingDetails from "./components/pages/bookings/Booking-details";
+import ImagesCreate from "./components/pages/package/add-images";
+import TravelPlanCreate from "./components/pages/package/add-travel-plan";
 
 //Default Warniing Error Hide
 // console.log = console.warn = console.error = () => {};
@@ -50,6 +57,13 @@ class App extends React.Component {
       <BrowserRouter basename={"/"}>
         <Routes>
           <Route exact path="/" element={<MainLayout />} />
+          <Route exact path="/search/:keyword" element={<Packages />} />
+          <Route exact path="/page/:pageNumber" element={<Packages />} />
+          <Route
+            exact
+            path="/search/:keyword/page/:pageNumber"
+            element={<Packages />}
+          />
           <Route
             path={`${process.env.PUBLIC_URL}/about-us`}
             element={<AboutUs />}
@@ -66,6 +80,10 @@ class App extends React.Component {
             path={`${process.env.PUBLIC_URL}/package-details/:id`}
             element={<PackageDetails />}
           />{" "}
+          <Route
+            path={`${process.env.PUBLIC_URL}/booking-details/:id`}
+            element={<BookingDetails />}
+          />{" "}
           <Route path={`${process.env.PUBLIC_URL}/faq`} element={<Faq />} />{" "}
           <Route
             path={`${process.env.PUBLIC_URL}/guide`}
@@ -80,8 +98,16 @@ class App extends React.Component {
             element={<BlogComponent />}
           />{" "}
           <Route
-            path={`${process.env.PUBLIC_URL}/blog-details`}
+            path={`${process.env.PUBLIC_URL}/bookings`}
+            element={<Bookings />}
+          />{" "}
+          <Route
+            path={`${process.env.PUBLIC_URL}/blog-details/:id`}
             element={<BlogDetails />}
+          />{" "}
+          <Route
+            path={`${process.env.PUBLIC_URL}/create-blog`}
+            element={<BlogCreate />}
           />{" "}
           <Route
             path={`${process.env.PUBLIC_URL}/contact`}
@@ -91,6 +117,18 @@ class App extends React.Component {
           <Route
             path={`${process.env.PUBLIC_URL}/register`}
             element={<Register />}
+          />{" "}
+          <Route
+            path={`${process.env.PUBLIC_URL}/add-product`}
+            element={<PackageCreate />}
+          />{" "}
+          <Route
+            path={`${process.env.PUBLIC_URL}/add-images/:id`}
+            element={<ImagesCreate />}
+          />{" "}
+          <Route
+            path={`${process.env.PUBLIC_URL}/add-travel-plan/:id`}
+            element={<TravelPlanCreate />}
           />{" "}
           <Route
             path={`${process.env.PUBLIC_URL}/profile`}

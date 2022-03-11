@@ -4,7 +4,7 @@ import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
 
 //Import Images
-import review1Img from "../../../assets/images/reviewer/reviewer-1.jpg";
+import review1Img from "../../../assets/images/reviewer/WhatsApp Image 2022-03-08 at 5.01.21 PM.jpeg";
 import review2Img from "../../../assets/images/reviewer/reviewer-2.JPG";
 import review3Img from "../../../assets/images/reviewer/reviewer-3.JPG";
 
@@ -70,13 +70,12 @@ class Review extends Component {
                   <img src={review1Img} alt="" className="img-fluid" />
                 </div>{" "}
                 <div className="reviewer-info">
-                  <h3> Dina Jems </h3>
-                  <h5> Traveller </h5>{" "}
+                  <h3> Monica Rubombora </h3>
+                  <h5> South Africa </h5>{" "}
                   <p>
-                    {" "}
-                    Fusce aliquam luctus est, eget tincidunt velit scelerisque
-                    rhoncus.Aliquam lacinia ipsum ornare, porttitor risus
-                    nec,mattis mauris.{" "}
+                    It’s a very knowledgeable & professional team that offered
+                    our visitors a memorable experience of the Western region in
+                    Uganda.
                   </p>
                 </div>{" "}
               </div>{" "}

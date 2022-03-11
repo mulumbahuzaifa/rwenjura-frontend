@@ -242,31 +242,31 @@ class Footers extends Component {
                     <img src={secondLogo} alt="" className="img-fluid" />
                   </div>
                   <p>
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                    Aliquid maxime aut ut voluptate dolorum nisi ducimus ratione
+                    Thinking about moving around the World? <br />
+                    Think about Rwenjura Tours & Travel
                   </p>
                   <div className="footer-social-icons">
                     <h5>Follow Us:</h5>
                     <ul>
                       <li>
-                        <Link to={"#"}>
+                        <a href="https://twitter.com/RwenjuraTours?t=a0TaHw32Y9-XBhaNKCYQaA&s=09">
                           <i className="bx bxl-facebook" />
-                        </Link>
+                        </a>
                       </li>
                       <li>
-                        <Link to={"#"}>
+                        <a href="https://www.instagram.com/rwenjuratours/">
                           <i className="bx bxl-instagram" />
-                        </Link>
+                        </a>
                       </li>
                       <li>
-                        <Link to={"#"}>
+                        <a href="https://twitter.com/RwenjuraTours?t=a0TaHw32Y9-XBhaNKCYQaA&s=09">
                           <i className="bx bxl-twitter" />
-                        </Link>
+                        </a>
                       </li>
                       <li>
-                        <Link to={"#"}>
-                          <i className="bx bxl-dribbble" />
-                        </Link>
+                        <a href="https://wa.me/message/4IUPSNXB6TUFK1">
+                          <i className="bx bxl-whatsapp" />
+                        </a>
                       </li>
                     </ul>
                   </div>
@@ -282,8 +282,7 @@ class Footers extends Component {
                           <i className="bx bx-phone" />
                         </span>
                         <div>
-                          <a href="tel:++256-704880439">+256-704880439</a>
-                          <a href="tel:++256-704880439">++256-704880439</a>
+                          <a href="tel:+256778876071">+256-778-876-071</a>
                         </div>
                       </div>
                       <div className="contact-box">
@@ -291,9 +290,11 @@ class Footers extends Component {
                           <i className="bx bx-mail-send" />
                         </span>
                         <div>
-                          <a href="mailto:info@example.com">info@example.com</a>
-                          <a href="mailto:support@example.com">
-                            support@example.com
+                          <a href="mailto:info@rwenjuratoursandtravel.com">
+                            info@rwenjuratoursandtravel.com
+                          </a>
+                          <a href="mailto:booking@rwenjuratoursandtravel.com">
+                            booking@rwenjuratoursandtravel.com
                           </a>
                         </div>
                       </div>
@@ -303,8 +304,8 @@ class Footers extends Component {
                         </span>
                         <div>
                           <Link to={"#"}>
-                            2752 Willison Street <br />
-                            Kampala, Uganda
+                            PO.Box 930004 Lugard Street, <br />
+                            Fort Portal, Uganda
                           </Link>
                         </div>
                       </div>
@@ -333,7 +334,7 @@ class Footers extends Component {
                           </li>
                           <li>
                             <Link
-                              to={`${process.env.PUBLIC_URL}/destination`}
+                              to={`${process.env.PUBLIC_URL}/package`}
                               onClick={this.scrollTop}
                             >
                               Destinations
@@ -345,15 +346,6 @@ class Footers extends Component {
                               onClick={this.scrollTop}
                             >
                               our Blogs
-                            </Link>
-                          </li>
-                          <li>
-                            <Link
-                              to={`${process.env.PUBLIC_URL}/package`}
-                              className="sub-item"
-                              onClick={this.scrollTop}
-                            >
-                              Package
                             </Link>
                           </li>
                         </ul>
