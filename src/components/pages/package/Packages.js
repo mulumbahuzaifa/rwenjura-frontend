@@ -17,7 +17,7 @@ const Packages = ({ match }) => {
   const dispatch = useDispatch();
   const productList = useSelector(state => state.productList);
   const { loading, error, products, page, pages } = productList;
-  const PF = "http://localhost:5000/images/";
+  const PF = "https://rwenjura-server.herokuapp.com/images/";
   useEffect(() => {
     console.log(listProduct);
     dispatch(listProduct(keyword, pageNumber));

@@ -89,7 +89,7 @@ const TravelPlanCreate = () => {
   //         },
   //       };
   //       const res = await axios.post(
-  //         "http://localhost:5000/api/products//images",
+  //         "https://rwenjura-server.herokuapp.com/api/products//images",
   //         newDays,
   //         config
   //       );

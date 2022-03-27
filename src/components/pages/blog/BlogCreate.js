@@ -52,11 +52,17 @@ const BlogCreate = () => {
       data.append("file", file);
       newPost.image = filename;
       try {
-        await axios.post("http://localhost:5000/api/upload", data);
+        await axios.post(
+          "https://rwenjura-server.herokuapp.com/api/upload",
+          data
+        );
       } catch (err) {}
     }
     try {
-      const res = await axios.post("http://localhost:5000/api/posts", newPost);
+      const res = await axios.post(
+        "https://rwenjura-server.herokuapp.com/api/posts",
+        newPost
+      );
       window.location.replace("/blog-details/" + res.data._id);
     } catch (err) {}
   };

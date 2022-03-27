@@ -9,7 +9,7 @@ import Message from "../../LoadingError/Error";
 const Packages = props => {
   const { keyword, pagenumber } = props;
   const dispatch = useDispatch();
-  const PF = "http://localhost:5000/images/";
+  const PF = "https://rwenjura-server.herokuapp.com/images/";
   const productList = useSelector(state => state.productList);
   const { loading, error, products, page, pages } = productList;
   useEffect(() => {

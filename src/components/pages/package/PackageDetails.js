@@ -69,7 +69,7 @@ const PackageDetails = () => {
 
   const url = window.location.pathname;
   const productId = url.substring(url.lastIndexOf("/") + 1);
-  const PF = "http://localhost:5000/images/";
+  const PF = "https://rwenjura-server.herokuapp.com/images/";
   const dispatch = useDispatch();
 
   const productDetails = useSelector(state => state.productDetails);

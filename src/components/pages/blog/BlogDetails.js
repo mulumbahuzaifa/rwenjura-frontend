@@ -28,7 +28,7 @@ const BlogDetails = () => {
   const location = useLocation();
   const path = location.pathname.split("/")[2];
   const [post, setPost] = useState({});
-  const PF = "http://localhost:5000/images/";
+  const PF = "https://rwenjura-server.herokuapp.com/images/";
   // const { user } = useContext(Context);
   const isReady = post !== undefined;
   const [title, setTitle] = useState("");
@@ -42,7 +42,9 @@ const BlogDetails = () => {
 
   useEffect(() => {
     const getPost = async () => {
-      const res = await axios.get("http://localhost:5000/api/posts/" + path);
+      const res = await axios.get(
+        "https://rwenjura-server.herokuapp.com/api/posts/" + path
+      );
       setPost(res.data);
       setTitle(res.data.title);
       setDesc(res.data.desc);
@@ -54,9 +56,12 @@ const BlogDetails = () => {
 
   const handleDelete = async () => {
     try {
-      await axios.delete(`http://localhost:5000/api/posts/${post._id}`, {
-        data: { username: userInfo.name },
-      });
+      await axios.delete(
+        `https://rwenjura-server.herokuapp.com/api/posts/${post._id}`,
+        {
+          data: { username: userInfo.name },
+        }
+      );
       window.location.replace("/");
     } catch (err) {}
   };
@@ -79,7 +84,7 @@ const BlogDetails = () => {
         },
       };
       const res = await axios.post(
-        `http://localhost:5000/api/posts/${post._id}/comment`,
+        `https://rwenjura-server.herokuapp.com/api/posts/${post._id}/comment`,
         newPost,
         config
       );

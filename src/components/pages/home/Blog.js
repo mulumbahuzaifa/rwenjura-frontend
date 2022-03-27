@@ -11,11 +11,13 @@ import { useLocation } from "react-router";
 const Blog = () => {
   const [posts, setPosts] = useState([]);
   const { search } = useLocation();
-  const PF = "http://localhost:5000/images/";
+  const PF = "https://rwenjura-server.herokuapp.com/images/";
 
   useEffect(() => {
     const fetchPosts = async () => {
-      const res = await axios.get("http://localhost:5000/api/posts" + search);
+      const res = await axios.get(
+        "https://rwenjura-server.herokuapp.com/api/posts" + search
+      );
       setPosts(res.data);
     };
     fetchPosts();
