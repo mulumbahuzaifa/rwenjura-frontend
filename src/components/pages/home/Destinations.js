@@ -119,7 +119,8 @@ const Destinations = props => {
                             <div className="package-info">
                               <h5>
                                 {" "}
-                                <span> {obj.price} </span>/PerPerson{" "}
+                                <span> ${obj.price.toLocaleString()} </span>
+                                /PerPerson{" "}
                               </h5>{" "}
                             </div>{" "}
                             <h3>

@@ -62,7 +62,7 @@ const Packages = props => {
                           <div className="package-info">
                             <h5>
                               {" "}
-                              <span>{obj.price.toLocaleString()} </span>
+                              <span>${obj.price.toLocaleString()} </span>
                               /PerPerson{" "}
                             </h5>{" "}
                             <h5>

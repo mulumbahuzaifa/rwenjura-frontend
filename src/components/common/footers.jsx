@@ -391,7 +391,7 @@ class Footers extends Component {
               <div className="col-lg-12">
                 <div className="copyrigth-area">
                   <p>
-                    Copyright 2021 <Link to={`#`}>Rwenjura</Link> | Design By{" "}
+                    Copyright 2022 <Link to={`#`}>Rwenjura</Link> | Design By{" "}
                     <Link to={`#`}>Senior Huz</Link>
                   </p>
                 </div>

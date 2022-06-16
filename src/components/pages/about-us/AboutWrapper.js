@@ -108,6 +108,10 @@ class AboutWrapper extends Component {
                     from Safaris, beach vacations, hiking & mountain climbing,
                     weekend getaways, honeymoons to team building activities.{" "}
                   </p>{" "}
+                  <p>
+                    We are represented on{" "}
+                    <a href="https://www.safaribookings.com">SAFARI BOOKINGS</a>
+                  </p>
                   <div className="blog-texts mt-30">
                     <div className="blog-qoute">
                       <i className="bx bxs-quote-right qoute-icon" />

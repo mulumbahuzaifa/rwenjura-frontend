@@ -56,8 +56,8 @@ class Review extends Component {
             <div className="row">
               <div className="col-lg-12 col-md-12 col-sm-12">
                 <div className="section-head pb-40">
-                  <h5> Our Traveller Say </h5>
-                  <h2> What Oue Traveller Say About Us </h2>{" "}
+                  <h5> Our Travelers Say </h5>
+                  <h2> What Our Travelers Say About Us </h2>{" "}
                 </div>{" "}
               </div>{" "}
             </div>
@@ -84,12 +84,11 @@ class Review extends Component {
                   <img src={review2Img} alt="" className="img-fluid" />
                 </div>{" "}
                 <div className="reviewer-info">
-                  <h3> Jahid Hassan </h3> <h5> Traveller </h5>{" "}
+                  <h3> Jahid Hassan </h3> <h5> Traveler </h5>{" "}
                   <p>
-                    {" "}
-                    Fusce aliquam luctus est, eget tincidunt velit scelerisque
-                    rhoncus.Aliquam lacinia ipsum ornare, porttitor risus
-                    nec,mattis mauris.{" "}
+                    It’s a very knowledgeable & professional team that offered
+                    our visitors a memorable experience of the Western region in
+                    Uganda.
                   </p>{" "}
                 </div>{" "}
               </div>
@@ -98,12 +97,11 @@ class Review extends Component {
                   <img src={review3Img} alt="" className="img-fluid" />
                 </div>
                 <div className="reviewer-info">
-                  <h3> Shwan Pull </h3> <h5> Traveller </h5>
+                  <h3> Shwan Pull </h3> <h5> Traveler </h5>
                   <p>
-                    {" "}
-                    Fusce aliquam luctus est, eget tincidunt velit scelerisque
-                    rhoncus.Aliquam lacinia ipsum ornare, porttitor risus
-                    nec,mattis mauris.{" "}
+                    It’s a very knowledgeable & professional team that offered
+                    our visitors a memorable experience of the Western region in
+                    Uganda.
                   </p>
                 </div>{" "}
               </div>{" "}

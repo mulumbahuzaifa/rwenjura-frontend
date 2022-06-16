@@ -82,7 +82,7 @@ class Features extends Component {
                       </h5>
                       <strong>
                         {" "}
-                        150k <span> 200k </span>
+                        $800 <span> $900 </span>
                       </strong>
                     </div>
                   </div>{" "}
@@ -103,7 +103,7 @@ class Features extends Component {
                       </h5>
                       <strong>
                         {" "}
-                        150k <span> 200k </span>
+                        $800 <span> $900 </span>
                       </strong>
                     </div>{" "}
                   </div>{" "}
@@ -125,7 +125,7 @@ class Features extends Component {
                       </h5>
                       <strong>
                         {" "}
-                        150k <span> 200k </span>
+                        $130 <span> $140 </span>
                       </strong>
                     </div>{" "}
                   </div>{" "}
@@ -147,7 +147,7 @@ class Features extends Component {
                       </h5>
                       <strong>
                         {" "}
-                        150k <span> 200k </span>
+                        $150 <span> $170 </span>
                       </strong>
                     </div>{" "}
                   </div>{" "}
@@ -168,7 +168,7 @@ class Features extends Component {
                       </h5>
                       <strong>
                         {" "}
-                        150k <span> 200k </span>
+                        $170 <span> $200 </span>
                       </strong>
                     </div>{" "}
                   </div>{" "}
