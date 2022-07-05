@@ -29,7 +29,7 @@ export const login = (email, password) => async dispatch => {
     };
 
     const { data } = await axios.post(
-      `https://rwenjura-server.herokuapp.com/api/users/login`,
+      `http://localhost:5000/api/users/login`,
       { email, password },
       config
     );
@@ -67,7 +67,7 @@ export const register = (name, email, password) => async dispatch => {
     };
 
     const { data } = await axios.post(
-      `https://rwenjura-server.herokuapp.com/api/users`,
+      `http://localhost:5000/api/users`,
       { name, email, password },
       config
     );
@@ -101,7 +101,7 @@ export const getUserDetails = id => async (dispatch, getState) => {
     };
 
     const { data } = await axios.get(
-      `https://rwenjura-server.herokuapp.com/api/users/${id}`,
+      `http://localhost:5000/api/users/${id}`,
       config
     );
     dispatch({ type: USER_DETAILS_SUCCESS, payload: data });
@@ -137,7 +137,7 @@ export const updateUserProfile = user => async (dispatch, getState) => {
     };
 
     const { data } = await axios.put(
-      `https://rwenjura-server.herokuapp.com/api/users/profile`,
+      `http://localhost:5000/api/users/profile`,
       user,
       config
     );

@@ -69,7 +69,7 @@ const PackageDetails = () => {
 
   const url = window.location.pathname;
   const productId = url.substring(url.lastIndexOf("/") + 1);
-  const PF = "https://rwenjura-server.herokuapp.com/images/";
+  const PF = "http://localhost:5000/images/";
   const dispatch = useDispatch();
 
   const productDetails = useSelector(state => state.productDetails);
@@ -183,7 +183,7 @@ const PackageDetails = () => {
               <div className="col-lg-8">
                 <div className="package-details">
                   <div className="package-thumb">
-                    <img src={PF + product.image} alt="" />
+                    <img src={product.image} alt="" />
                     <div className="package-header">
                       <div className="package-title">
                         <h3> {product.name}</h3>{" "}
@@ -628,12 +628,12 @@ const PackageDetails = () => {
                                           <div className="">
                                             <Link
                                               key={obj._id}
-                                              to={PF + obj.image}
+                                              to={obj.image}
                                               className="g-img-sm-1 main-gallary"
                                             >
                                               <img
-                                                src={PF + obj.image}
-                                                alt={`${PF + obj.image}`}
+                                                src={obj.image}
+                                                alt={`${obj.image}`}
                                               />
                                             </Link>
                                           </div>

@@ -9,13 +9,11 @@ import { useLocation } from "react-router";
 const BlogComponent = () => {
   const [posts, setPosts] = useState([]);
   const { search } = useLocation();
-  const PF = "https://rwenjura-server.herokuapp.com/images/";
+  const PF = "http://localhost:5000/images/";
 
   useEffect(() => {
     const fetchPosts = async () => {
-      const res = await axios.get(
-        "https://rwenjura-server.herokuapp.com/api/posts" + search
-      );
+      const res = await axios.get("http://localhost:5000/api/posts" + search);
       setPosts(res.data);
     };
     fetchPosts();
@@ -55,7 +53,7 @@ const BlogComponent = () => {
                       to={`${process.env.PUBLIC_URL}/blog-details/${p._id}`}
                       className="blog-writer"
                     >
-                      <img src={PF + p.image} alt="" className="img-fluid" />
+                      <img src={p.image} alt="" className="img-fluid" />
                     </Link>{" "}
                     <div className="blog-date">
                       {" "}

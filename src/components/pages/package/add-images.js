@@ -62,10 +62,7 @@ const ImagesCreate = () => {
       data.append("file", file);
       newProduct.image = filename;
       try {
-        await axios.post(
-          "https://rwenjura-server.herokuapp.com/api/upload",
-          data
-        );
+        await axios.post("http://localhost:5000/api/upload", data);
       } catch (err) {}
     }
     const config = {
@@ -77,7 +74,7 @@ const ImagesCreate = () => {
 
     try {
       await axios.post(
-        `https://rwenjura-server.herokuapp.com/api/products/${productId}/images`,
+        `http://localhost:5000/api/products/${productId}/images`,
         newProduct,
         config
       );

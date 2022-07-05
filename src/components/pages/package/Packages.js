@@ -17,7 +17,7 @@ const Packages = ({ match }) => {
   const dispatch = useDispatch();
   const productList = useSelector(state => state.productList);
   const { loading, error, products, page, pages } = productList;
-  const PF = "https://rwenjura-server.herokuapp.com/images/";
+  const PF = "http://localhost:5000/images/";
   useEffect(() => {
     console.log(listProduct);
     dispatch(listProduct(keyword, pageNumber));
@@ -82,11 +82,7 @@ const Packages = ({ match }) => {
                           <Link
                             to={`${process.env.PUBLIC_URL}/package-details/${obj._id}`}
                           >
-                            <img
-                              src={PF + obj.image}
-                              alt=""
-                              className="img-fluid"
-                            />
+                            <img src={obj.image} alt="" className="img-fluid" />
                           </Link>
                         </div>{" "}
                         <div className="package-details">

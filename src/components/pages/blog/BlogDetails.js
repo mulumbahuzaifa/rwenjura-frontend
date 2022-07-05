@@ -28,7 +28,7 @@ const BlogDetails = () => {
   const location = useLocation();
   const path = location.pathname.split("/")[2];
   const [post, setPost] = useState({});
-  const PF = "https://rwenjura-server.herokuapp.com/images/";
+  const PF = "http://localhost:5000/images/";
   // const { user } = useContext(Context);
   const isReady = post !== undefined;
   const [title, setTitle] = useState("");
@@ -42,9 +42,7 @@ const BlogDetails = () => {
 
   useEffect(() => {
     const getPost = async () => {
-      const res = await axios.get(
-        "https://rwenjura-server.herokuapp.com/api/posts/" + path
-      );
+      const res = await axios.get("http://localhost:5000/api/posts/" + path);
       setPost(res.data);
       setTitle(res.data.title);
       setDesc(res.data.desc);
@@ -56,12 +54,9 @@ const BlogDetails = () => {
 
   const handleDelete = async () => {
     try {
-      await axios.delete(
-        `https://rwenjura-server.herokuapp.com/api/posts/${post._id}`,
-        {
-          data: { username: userInfo.name },
-        }
-      );
+      await axios.delete(`http://localhost:5000/api/posts/${post._id}`, {
+        data: { username: userInfo.name },
+      });
       window.location.replace("/");
     } catch (err) {}
   };
@@ -84,7 +79,7 @@ const BlogDetails = () => {
         },
       };
       const res = await axios.post(
-        `https://rwenjura-server.herokuapp.com/api/posts/${post._id}/comment`,
+        `http://localhost:5000/api/posts/${post._id}/comment`,
         newPost,
         config
       );
@@ -145,7 +140,7 @@ const BlogDetails = () => {
                   </div>{" "}
                 </div>{" "}
                 <div className="blog-img-xl">
-                  <img src={PF + post.image} alt="" className="img-fluid" />
+                  <img src={post.image} alt="" className="img-fluid" />
                   <div className="blog-date">
                     {" "}
                     <i className="flaticon-calendar" />{" "}

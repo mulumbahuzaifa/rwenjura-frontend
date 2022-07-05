@@ -9,7 +9,7 @@ import Message from "../../LoadingError/Error";
 const Packages = props => {
   const { keyword, pagenumber } = props;
   const dispatch = useDispatch();
-  const PF = "https://rwenjura-server.herokuapp.com/images/";
+  const PF = "http://localhost:5000/images/";
   const productList = useSelector(state => state.productList);
   const { loading, error, products, page, pages } = productList;
   useEffect(() => {
@@ -51,11 +51,7 @@ const Packages = props => {
                           <Link
                             to={`${process.env.PUBLIC_URL}/package-details/${obj._id}`}
                           >
-                            <img
-                              src={PF + obj.image}
-                              alt=""
-                              className="img-fluid"
-                            />
+                            <img src={obj.image} alt="" className="img-fluid" />
                           </Link>
                         </div>{" "}
                         <div className="package-details">

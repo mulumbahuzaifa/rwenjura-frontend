@@ -63,7 +63,7 @@ const BookingDetails = () => {
 
   const url = window.location.pathname;
   const productId = url.substring(url.lastIndexOf("/") + 1);
-  const PF = "https://rwenjura-server.herokuapp.com/images/";
+  const PF = "http://localhost:5000/images/";
   const dispatch = useDispatch();
 
   const productDetails = useSelector(state => state.productDetails);

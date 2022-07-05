@@ -58,12 +58,14 @@ const PackageCreate = () => {
       const filename = Date.now() + file.name;
       data.append("name", filename);
       data.append("file", file);
-      newProduct.image = filename;
+
       try {
-        await axios.post(
-          "https://rwenjura-server.herokuapp.com/api/upload",
-          data
-        );
+        await axios
+          .post("http://localhost:5000/api/upload", data)
+          .then(result => {
+            newProduct.image = result.data.secure_url;
+            newProduct.cloudinary_id = result.data.public_id;
+          });
       } catch (err) {}
     }
     try {
@@ -74,11 +76,11 @@ const PackageCreate = () => {
         },
       };
       const res = await axios.post(
-        "https://rwenjura-server.herokuapp.com/api/products",
+        "http://localhost:5000/api/products",
         newProduct,
         config
       );
-      toast.success("Package successfully reviewed", Toastobjects);
+      toast.success("Package successfully Created", Toastobjects);
       window.location.replace("/package-details/" + res.data._id);
     } catch (err) {}
   };
